@@ -21,7 +21,8 @@
     "typeorm": "docker compose exec app npx typeorm -d dist/db/data-source.js",
     "migration:generate": "docker compose exec app npx typeorm migration:generate -d dist/db/data-source.js",
     "migration:run": "docker compose exec app npx typeorm migration:run -d dist/db/data-source.js",
-    "migration:revert": "docker compose exec app npx typeorm migration:revert -d dist/db/data-source.js"
+    "migration:revert": "docker compose exec app npx typeorm migration:revert -d dist/db/data-source.js",
+    "seed": "docker compose exec app npx ts-node -r tsconfig-paths/register db/seeds/product.seed.ts"
   },
   "dependencies": {
     "@api/credix-credipay": "file:.api/apis/credix-credipay",
