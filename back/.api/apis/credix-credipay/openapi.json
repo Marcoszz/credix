@@ -3940,7 +3940,7 @@
   "tags": [],
   "servers": [
     {
-      "url": "https://api.credix.finance",
+      "url": "https://api.pre.credix.finance",
       "description": "Credipay server"
     }
   ],
