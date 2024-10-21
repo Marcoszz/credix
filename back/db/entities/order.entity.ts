@@ -39,7 +39,7 @@ export class Order {
   paymentTermDays: number;
 
   @Column()
-  status: 'created' | 'finalized' | 'captured' | 'cancelled' | 'accepted';
+  status: 'accepted' | 'created' | 'finalized' | 'captured' | 'cancelled' ;
 
   @CreateDateColumn()
   createdAt: Date;
@@ -56,7 +56,7 @@ export class Order {
   @Column()
   noAdvancing: boolean;
   
-  @OneToMany(() => Installment, (installment) => installment.order)
+  @OneToMany(() => Installment, (installment) => installment.order, {cascade: true})
   installments: Installment[];
 
   @OneToMany(() => Item, item => item.order, { cascade: true })
