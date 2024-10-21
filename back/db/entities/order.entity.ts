@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany } from 'typeorm';
 import { Installment } from './installment.entity';
+import { Item } from './item.entity';
 
 @Entity()
 export class Order {
@@ -38,7 +39,7 @@ export class Order {
   paymentTermDays: number;
 
   @Column()
-  status: 'created' | 'finalized' | 'captured' | 'cancelled';
+  status: 'created' | 'finalized' | 'captured' | 'cancelled' | 'accepted';
 
   @CreateDateColumn()
   createdAt: Date;
@@ -57,4 +58,7 @@ export class Order {
   
   @OneToMany(() => Installment, (installment) => installment.order)
   installments: Installment[];
+
+  @OneToMany(() => Item, item => item.order, { cascade: true })
+  items: Item[];
 }
