@@ -53,6 +53,6 @@ export class Order {
   @OneToMany(() => Installment, (installment) => installment.order, {cascade: true})
   installments: Installment[];
 
-  @OneToMany(() => Item, item => item.order, { cascade: true })
+  @OneToMany(() => Item, (item) => item.order, { cascade: true })
   items: Item[];
 }

@@ -16,8 +16,7 @@ export class OrdersController {
       return result;
     } catch (error) {
       return {
-        message: 'Erro ao criar ordem',
-        error: error.message,
+        error,
       };
     }
   }
