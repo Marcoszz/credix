@@ -8,7 +8,13 @@ export class Item {
   id: string;
 
   @Column()
+  productName: string;
+
+  @Column()
   quantity: number;
+
+  @Column()
+  unitPriceCents: number;
 
   @ManyToOne(() => Product)
   product: Product;
