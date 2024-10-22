@@ -1,6 +1,5 @@
 import type { FromSchema } from 'json-schema-to-ts';
 import * as schemas from './schemas';
-
 export type GetBuyerMetadataParam = FromSchema<typeof schemas.GetBuyer.metadata>;
 export type GetBuyerResponse200 = FromSchema<typeof schemas.GetBuyer.response['200']>;
 export type GetBuyersMetadataParam = FromSchema<typeof schemas.GetBuyers.metadata>;
