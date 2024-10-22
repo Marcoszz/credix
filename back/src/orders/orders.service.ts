@@ -27,14 +27,20 @@ export class OrdersService {
 
         let order;
 
-        console.log(payload)
-
         try {
             await this.orderRepository.manager.transaction(async (transactionEntityManager) => {
                 credixCredipay.auth(process.env.CREDIPAY_API_KEY);
-                order = (await credixCredipay.postCreateOrder(payload)).data;
-                console.log("passou")
-                await transactionEntityManager.save(order);
+                order = {
+                    ...(await credixCredipay.postCreateOrder(payload)).data, 
+                    estimatedDeliveryDate: payload.estimatedDeliveryDate,
+                    items: payload.items.map(item => ({
+                        quantity: item.quantity,
+                        productName: item.productName,
+                        unitPriceCents: item.unitPriceCents,
+                        product: { id: item.productId }
+                    })), 
+                };
+                await transactionEntityManager.save(Order, order);
 
                 for (const item of payload.items) {
                     const product = await this.productRepository.findOne({where: {id: item.productId}});
@@ -46,7 +52,6 @@ export class OrdersService {
                 }
             });
         } catch (error) {
-            console.log(error)
             throw new Error(error);
         }
 
