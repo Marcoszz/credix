@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany } from 'typeorm';
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Installment } from './installment.entity';
 import { Item } from './item.entity';
+import { ShippingLocationDto } from 'src/orders/dtos/shipping-location.dto';
 
 @Entity()
 export class Order {
@@ -26,14 +27,7 @@ export class Order {
   totalAmountCents: number;
 
   @Column('jsonb')
-  shippingLocation: {
-    address1: string;
-    address2?: string;
-    city: string;
-    region: string;
-    postalCode: string;
-    country: string;
-  };
+  shippingLocation: ShippingLocationDto;
 
   @Column()
   paymentTermDays: number;

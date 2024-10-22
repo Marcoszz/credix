@@ -9,6 +9,9 @@ export class Installment {
   @Column()
   maturityDate: Date;
 
+  @Column()
+  faceValueCents: number;
+
   @ManyToOne(() => Order, (order) => order.installments)
   order: Order;
 }
