@@ -6,7 +6,12 @@ import useCart from "./hooks/useCart";
 import Total from "./components/Total";
 
 const Cart = () => {
-  const { cartItems, removeItemFromCart, handlePressBack } = useCart();
+  const {
+    cartItems,
+    removeItemFromCart,
+    handlePressBack,
+    handleGoToOrderClick,
+  } = useCart();
 
   return (
     <>
@@ -40,8 +45,9 @@ const Cart = () => {
               variant="contained"
               color="primary"
               disabled={!cartItems.length}
+              onClick={handleGoToOrderClick}
             >
-              Go to Payment
+              Go to Order
             </Button>
           </div>
         </Paper>

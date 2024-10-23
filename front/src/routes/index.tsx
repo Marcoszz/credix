@@ -1,5 +1,6 @@
 import Cart from "../screens/cart";
 import Home from "../screens/home";
+import Order from "../screens/order";
 
 type Route = {
   path: string;
@@ -14,5 +15,9 @@ export const routes: Route[] = [
   {
     path: "/cart",
     element: Cart,
+  },
+  {
+    path: "/order",
+    element: Order,
   },
 ];

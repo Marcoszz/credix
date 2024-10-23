@@ -10,10 +10,15 @@ const useCart = () => {
         navigate(-1);
     }
 
+    const handleGoToOrderClick = () => {
+        navigate("/order");
+    }
+
     return {
         cartItems,
         removeItemFromCart, 
-        handlePressBack
+        handlePressBack,
+        handleGoToOrderClick
     }
 }
 
