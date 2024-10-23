@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import api from '../api';
 
-interface Product {
+export interface Product {
   id: string;
-  name: string;
-  price: number;
+  productName: string;
+  unitPriceCents: number;
   stockQuantity: number;
+  description: string;
 }
 
 const useGetProducts = () => {
