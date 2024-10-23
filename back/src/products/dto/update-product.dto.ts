@@ -6,24 +6,24 @@ export class UpdateProductDto {
     @IsNotEmpty()
     @ApiProperty()
     @IsOptional()
-    productName: string;
+    productName?: string;
 
     @IsInt()
     @IsNotEmpty()
     @ApiProperty() 
     @IsOptional()
-    unitPriceCents: number;
+    unitPriceCents?: number;
 
     @IsString()
     @IsNotEmpty()
     @ApiProperty()
     @IsOptional()
-    description: string;
+    description?: string;
 
     @IsInt()
     @IsNotEmpty()
     @ApiProperty()
     @IsOptional()
-    stockQuantity: number;
+    stockQuantity?: number;
 
 }

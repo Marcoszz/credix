@@ -15,15 +15,12 @@ export class ProductsService {
     return await this.productRepository.find();
   }
 
+  async findOne(id: string): Promise<Product> {
+    return await this.productRepository.findOne({ where: { id } });
+  }
+
   async update(id: string, updateProductDto: UpdateProductDto): Promise<Product> {
-    const product = await this.productRepository.findOne({ where: { id } });
-
-    if (!product) {
-      throw new Error('Product not found'); 
-    }
-
-    Object.assign(product, updateProductDto);
-
-    return await this.productRepository.save(product);
+    const product = await this.findOne(id);
+    return await this.productRepository.save(Object.assign(product, updateProductDto));
   }
 }
