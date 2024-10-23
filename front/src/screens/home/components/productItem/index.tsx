@@ -1,39 +1,21 @@
-import { useState } from "react";
 import FlatwareIcon from "@mui/icons-material/Flatware";
 import { Button, Card } from "@mui/material";
 import { Product } from "../../../../services/hooks/useGetProducts";
 import { centsToReais } from "../../../../utils";
-import { useCart } from "../../../../contexts/CartContext";
+import useProductItem from "./hooks/useProductItem";
 
 type Props = {
   product: Product;
 };
 
 const ProductItem = ({ product }: Props) => {
-  const [quantity, setQuantity] = useState(0);
-  const { addItemToCart } = useCart();
-
-  const handleIncrement = () => {
-    if (quantity < product.stockQuantity) {
-      setQuantity((prevQuantity) => prevQuantity + 1);
-    }
-  };
-
-  const handleDecrement = () => {
-    if (quantity > 0) {
-      setQuantity((prevQuantity) => prevQuantity - 1);
-    }
-  };
-
-  const handleAddToCart = () => {
-    const item = {
-      productName: product.productName,
-      quantity,
-      unitPriceCents: product.unitPriceCents,
-      productId: product.id,
-    };
-    addItemToCart(item);
-  };
+  const {
+    handleAddToCart,
+    handleDecrement,
+    handleIncrement,
+    getTotalQuantityInCart,
+    quantity,
+  } = useProductItem(product);
 
   return (
     <Card
@@ -70,7 +52,10 @@ const ProductItem = ({ product }: Props) => {
           variant="contained"
           size="small"
           onClick={handleIncrement}
-          disabled={quantity === product.stockQuantity}
+          disabled={
+            quantity + getTotalQuantityInCart(product.id) >=
+            product.stockQuantity
+          }
         >
           +
         </Button>

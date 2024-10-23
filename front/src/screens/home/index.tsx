@@ -1,7 +1,8 @@
-import { Pagination, Paper } from "@mui/material";
+import { Button, Pagination, Paper } from "@mui/material";
 import Header from "../../components/Header";
 import useHome from "./hooks/useHome";
 import ProductsList from "./components/productsList";
+import { useCart } from "../../contexts/CartContext";
 
 const Home = () => {
   const {
@@ -12,6 +13,8 @@ const Home = () => {
     loading,
     totalPages,
   } = useHome();
+
+  const { cartItems } = useCart();
 
   return (
     <>
@@ -29,6 +32,15 @@ const Home = () => {
           elevation={3}
         >
           <ProductsList productsList={products} />
+          <div className="flex justify-center mt-4">
+            <Button
+              variant="contained"
+              color="primary"
+              disabled={!cartItems.length}
+            >
+              Finish Purchase
+            </Button>
+          </div>
         </Paper>
         <Pagination
           count={totalPages}
