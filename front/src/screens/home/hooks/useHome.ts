@@ -15,7 +15,7 @@ const useHome = () => {
   );
 
   const handleFinishPurchaseClick = () => {
-    navigate("/payment");
+    navigate("/cart");
   }
 
   useEffect(() => {

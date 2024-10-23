@@ -8,10 +8,10 @@ import {
 import Header from "../../components/Header";
 import useHome from "./hooks/useHome";
 import ProductsList from "./components/productsList";
-import { useCart } from "../../contexts/CartContext";
 import { Product } from "../../services/hooks/useGetProducts";
 import { Item } from "../../contexts/CartContext/types";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
+import { useCartContext } from "../../contexts/CartContext";
 
 const renderContent = (
   loading: boolean,
@@ -43,7 +43,7 @@ const renderContent = (
           disabled={!cartItems.length}
           onClick={handleFinishPurchaseClick}
         >
-          Finish Purchase
+          Go to Cart
         </Button>
       </div>
     </>
@@ -61,7 +61,7 @@ const Home = () => {
     handleFinishPurchaseClick,
   } = useHome();
 
-  const { cartItems } = useCart();
+  const { cartItems } = useCartContext();
 
   return (
     <>

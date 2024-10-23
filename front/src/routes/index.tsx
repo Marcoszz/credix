@@ -1,5 +1,5 @@
+import Cart from "../screens/cart";
 import Home from "../screens/home";
-import Payment from "../screens/payment";
 
 type Route = {
   path: string;
@@ -12,7 +12,7 @@ export const routes: Route[] = [
     element: Home,
   },
   {
-    path: "/payment",
-    element: Payment,
+    path: "/cart",
+    element: Cart,
   },
 ];

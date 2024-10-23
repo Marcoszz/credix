@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Product } from "../../../../../services/hooks/useGetProducts";
-import { useCart } from "../../../../../contexts/CartContext";
+import { useCartContext } from "../../../../../contexts/CartContext";
 
 const useProductItem = (product: Product) => {
     const [quantity, setQuantity] = useState(0);
-    const { addItemToCart, cartItems } = useCart();
+    const { addItemToCart, cartItems } = useCartContext();
 
     const getTotalQuantityInCart = (productId: string) => {
         return cartItems.reduce((total, item) => {
