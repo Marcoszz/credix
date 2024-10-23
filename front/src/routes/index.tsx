@@ -1,13 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../screens/home";
-const AppRouter = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </Router>
-  );
+
+type Route = {
+  path: string;
+  element: () => JSX.Element;
 };
 
-export default AppRouter;
+export const routes: Route[] = [
+  {
+    path: "/",
+    element: Home,
+  },
+];
