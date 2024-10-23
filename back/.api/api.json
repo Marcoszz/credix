@@ -3,8 +3,8 @@
   "apis": [
     {
       "identifier": "credix-credipay",
-      "source": "@credix-credipay/v1.0-pre-mainnet#7bhcw32m2dk5nep",
-      "integrity": "sha512-bZTHb9L+q4h9gvkVWviks7cpmUioTvL8zN78aSboACAMTFrOpwHzDo/5UHwwGvR23DUa4FI1h9gkGGf6ELC8aw==",
+      "source": "@credix-credipay/v1.0-pre-mainnet#8lxtst32m2l1jw0a",
+      "integrity": "sha512-cbYsbzLWWzFXGm8Iq892jpLzle7N2tXPKMYW/Kpf/gmbGTwbKs8sTmenF1gzR4F9nmgpJ1+nTRxCw8/Npc34/w==",
       "installerVersion": "6.1.2"
     }
   ]

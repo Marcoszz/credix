@@ -339,6 +339,12 @@ declare const GetInvoice: {
                                 readonly description: "Invoice due date in ISO 8601 format. In the case of multiple installments, this is the due date of the last installment.";
                                 readonly examples: readonly ["2024-02-29T00:00:00.000Z"];
                             };
+                            readonly repaymentDate: {
+                                readonly type: "object";
+                                readonly description: "Repayment date in ISO 8601 format. Defaults to null if the repayment has yet to be made.";
+                                readonly examples: readonly ["2024-02-20T00:00:00.000Z"];
+                                readonly additionalProperties: true;
+                            };
                             readonly pdfURL: {
                                 readonly type: "object";
                                 readonly description: "Repayment PDF URL";
@@ -346,7 +352,7 @@ declare const GetInvoice: {
                                 readonly additionalProperties: true;
                             };
                         };
-                        readonly required: readonly ["id", "status", "amount", "dueDate", "pdfURL"];
+                        readonly required: readonly ["id", "status", "amount", "dueDate", "repaymentDate", "pdfURL"];
                     };
                 };
                 readonly order: {
@@ -574,6 +580,12 @@ declare const GetInvoices: {
                                     readonly description: "Invoice due date in ISO 8601 format. In the case of multiple installments, this is the due date of the last installment.";
                                     readonly examples: readonly ["2024-02-29T00:00:00.000Z"];
                                 };
+                                readonly repaymentDate: {
+                                    readonly type: "object";
+                                    readonly description: "Repayment date in ISO 8601 format. Defaults to null if the repayment has yet to be made.";
+                                    readonly examples: readonly ["2024-02-20T00:00:00.000Z"];
+                                    readonly additionalProperties: true;
+                                };
                                 readonly pdfURL: {
                                     readonly type: "object";
                                     readonly description: "Repayment PDF URL";
@@ -581,7 +593,7 @@ declare const GetInvoices: {
                                     readonly additionalProperties: true;
                                 };
                             };
-                            readonly required: readonly ["id", "status", "amount", "dueDate", "pdfURL"];
+                            readonly required: readonly ["id", "status", "amount", "dueDate", "repaymentDate", "pdfURL"];
                         };
                     };
                     readonly order: {
@@ -810,6 +822,12 @@ declare const GetInvoicesOld: {
                                     readonly description: "Invoice due date in ISO 8601 format. In the case of multiple installments, this is the due date of the last installment.";
                                     readonly examples: readonly ["2024-02-29T00:00:00.000Z"];
                                 };
+                                readonly repaymentDate: {
+                                    readonly type: "object";
+                                    readonly description: "Repayment date in ISO 8601 format. Defaults to null if the repayment has yet to be made.";
+                                    readonly examples: readonly ["2024-02-20T00:00:00.000Z"];
+                                    readonly additionalProperties: true;
+                                };
                                 readonly pdfURL: {
                                     readonly type: "object";
                                     readonly description: "Repayment PDF URL";
@@ -817,7 +835,7 @@ declare const GetInvoicesOld: {
                                     readonly additionalProperties: true;
                                 };
                             };
-                            readonly required: readonly ["id", "status", "amount", "dueDate", "pdfURL"];
+                            readonly required: readonly ["id", "status", "amount", "dueDate", "repaymentDate", "pdfURL"];
                         };
                     };
                     readonly order: {
@@ -2609,6 +2627,12 @@ declare const PostSubmitInvoiceXml: {
                                 readonly description: "Invoice due date in ISO 8601 format. In the case of multiple installments, this is the due date of the last installment.";
                                 readonly examples: readonly ["2024-02-29T00:00:00.000Z"];
                             };
+                            readonly repaymentDate: {
+                                readonly type: "object";
+                                readonly description: "Repayment date in ISO 8601 format. Defaults to null if the repayment has yet to be made.";
+                                readonly examples: readonly ["2024-02-20T00:00:00.000Z"];
+                                readonly additionalProperties: true;
+                            };
                             readonly pdfURL: {
                                 readonly type: "object";
                                 readonly description: "Repayment PDF URL";
@@ -2616,7 +2640,7 @@ declare const PostSubmitInvoiceXml: {
                                 readonly additionalProperties: true;
                             };
                         };
-                        readonly required: readonly ["id", "status", "amount", "dueDate", "pdfURL"];
+                        readonly required: readonly ["id", "status", "amount", "dueDate", "repaymentDate", "pdfURL"];
                     };
                 };
                 readonly order: {

@@ -2839,6 +2839,11 @@
                             "description": "Invoice due date in ISO 8601 format. In the case of multiple installments, this is the due date of the last installment.",
                             "example": "2024-02-29T00:00:00.000Z"
                           },
+                          "repaymentDate": {
+                            "type": "object",
+                            "description": "Repayment date in ISO 8601 format. Defaults to null if the repayment has yet to be made.",
+                            "example": "2024-02-20T00:00:00.000Z"
+                          },
                           "pdfURL": {
                             "type": "object",
                             "description": "Repayment PDF URL",
@@ -2851,6 +2856,7 @@
                           "status",
                           "amount",
                           "dueDate",
+                          "repaymentDate",
                           "pdfURL"
                         ]
                       }
@@ -3174,6 +3180,11 @@
                               "description": "Invoice due date in ISO 8601 format. In the case of multiple installments, this is the due date of the last installment.",
                               "example": "2024-02-29T00:00:00.000Z"
                             },
+                            "repaymentDate": {
+                              "type": "object",
+                              "description": "Repayment date in ISO 8601 format. Defaults to null if the repayment has yet to be made.",
+                              "example": "2024-02-20T00:00:00.000Z"
+                            },
                             "pdfURL": {
                               "type": "object",
                               "description": "Repayment PDF URL",
@@ -3186,6 +3197,7 @@
                             "status",
                             "amount",
                             "dueDate",
+                            "repaymentDate",
                             "pdfURL"
                           ]
                         }
@@ -3476,6 +3488,11 @@
                             "description": "Invoice due date in ISO 8601 format. In the case of multiple installments, this is the due date of the last installment.",
                             "example": "2024-02-29T00:00:00.000Z"
                           },
+                          "repaymentDate": {
+                            "type": "object",
+                            "description": "Repayment date in ISO 8601 format. Defaults to null if the repayment has yet to be made.",
+                            "example": "2024-02-20T00:00:00.000Z"
+                          },
                           "pdfURL": {
                             "type": "object",
                             "description": "Repayment PDF URL",
@@ -3488,6 +3505,7 @@
                           "status",
                           "amount",
                           "dueDate",
+                          "repaymentDate",
                           "pdfURL"
                         ]
                       }
@@ -3820,6 +3838,11 @@
                               "description": "Invoice due date in ISO 8601 format. In the case of multiple installments, this is the due date of the last installment.",
                               "example": "2024-02-29T00:00:00.000Z"
                             },
+                            "repaymentDate": {
+                              "type": "object",
+                              "description": "Repayment date in ISO 8601 format. Defaults to null if the repayment has yet to be made.",
+                              "example": "2024-02-20T00:00:00.000Z"
+                            },
                             "pdfURL": {
                               "type": "object",
                               "description": "Repayment PDF URL",
@@ -3832,6 +3855,7 @@
                             "status",
                             "amount",
                             "dueDate",
+                            "repaymentDate",
                             "pdfURL"
                           ]
                         }
@@ -5595,6 +5619,11 @@
             "description": "Invoice due date in ISO 8601 format. In the case of multiple installments, this is the due date of the last installment.",
             "example": "2024-02-29T00:00:00.000Z"
           },
+          "repaymentDate": {
+            "type": "object",
+            "description": "Repayment date in ISO 8601 format. Defaults to null if the repayment has yet to be made.",
+            "example": "2024-02-20T00:00:00.000Z"
+          },
           "pdfURL": {
             "type": "object",
             "description": "Repayment PDF URL",
@@ -5607,6 +5636,7 @@
           "status",
           "amount",
           "dueDate",
+          "repaymentDate",
           "pdfURL"
         ]
       },
@@ -5833,6 +5863,11 @@
                   "description": "Invoice due date in ISO 8601 format. In the case of multiple installments, this is the due date of the last installment.",
                   "example": "2024-02-29T00:00:00.000Z"
                 },
+                "repaymentDate": {
+                  "type": "object",
+                  "description": "Repayment date in ISO 8601 format. Defaults to null if the repayment has yet to be made.",
+                  "example": "2024-02-20T00:00:00.000Z"
+                },
                 "pdfURL": {
                   "type": "object",
                   "description": "Repayment PDF URL",
@@ -5845,6 +5880,7 @@
                 "status",
                 "amount",
                 "dueDate",
+                "repaymentDate",
                 "pdfURL"
               ]
             }
