@@ -1,8 +1,54 @@
-import { Button, Pagination, Paper } from "@mui/material";
+import {
+  Alert,
+  Button,
+  CircularProgress,
+  Pagination,
+  Paper,
+} from "@mui/material";
 import Header from "../../components/Header";
 import useHome from "./hooks/useHome";
 import ProductsList from "./components/productsList";
 import { useCart } from "../../contexts/CartContext";
+import { Product } from "../../services/hooks/useGetProducts";
+import { Item } from "../../contexts/CartContext/types";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
+
+const renderContent = (
+  loading: boolean,
+  error: string | null,
+  products: Product[],
+  handleFinishPurchaseClick: () => void,
+  cartItems: Item[]
+) => {
+  if (loading) return <CircularProgress size={80} />;
+
+  if (error || !products) {
+    return (
+      <>
+        <Alert severity="error">
+          {`An error occurred while fetching products: ${error}`}
+        </Alert>
+        <SentimentVeryDissatisfiedIcon sx={{ fontSize: 240 }} />
+      </>
+    );
+  }
+
+  return (
+    <>
+      <ProductsList productsList={products} />
+      <div className="flex justify-center mt-4">
+        <Button
+          variant="contained"
+          color="primary"
+          disabled={!cartItems.length}
+          onClick={handleFinishPurchaseClick}
+        >
+          Finish Purchase
+        </Button>
+      </div>
+    </>
+  );
+};
 
 const Home = () => {
   const {
@@ -12,6 +58,7 @@ const Home = () => {
     handleChangePage,
     loading,
     totalPages,
+    handleFinishPurchaseClick,
   } = useHome();
 
   const { cartItems } = useCart();
@@ -28,19 +75,20 @@ const Home = () => {
             padding: "16px",
             margin: "0 auto",
             boxSizing: "border-box",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
           }}
           elevation={3}
         >
-          <ProductsList productsList={products} />
-          <div className="flex justify-center mt-4">
-            <Button
-              variant="contained"
-              color="primary"
-              disabled={!cartItems.length}
-            >
-              Finish Purchase
-            </Button>
-          </div>
+          {renderContent(
+            loading,
+            error,
+            products,
+            handleFinishPurchaseClick,
+            cartItems
+          )}
         </Paper>
         <Pagination
           count={totalPages}

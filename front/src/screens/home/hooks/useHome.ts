@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import useGetProducts from "../../../services/hooks/useGetProducts";
+import { useNavigate } from "react-router-dom";
 
 const useHome = () => {
+  const navigate = useNavigate();
   const { products, loading, error, fetchProducts } = useGetProducts();
   
   const [currentPage, setCurrentPage] = useState(1);
@@ -11,6 +13,10 @@ const useHome = () => {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+
+  const handleFinishPurchaseClick = () => {
+    navigate("/payment");
+  }
 
   useEffect(() => {
     fetchProducts();
@@ -27,6 +33,7 @@ const useHome = () => {
     currentPage,
     totalPages: Math.ceil(products.length / itemsPerPage),
     handleChangePage,
+    handleFinishPurchaseClick
   };
 };
 
