@@ -2,7 +2,7 @@ import FlatwareIcon from "@mui/icons-material/Flatware";
 import { Button, Card } from "@mui/material";
 import { Product } from "../../../../services/hooks/useGetProducts";
 import { centsToReais } from "../../../../utils";
-import useProductItem from "./hooks/useProductItem";
+import useProductItem from "../../hooks/useProductItem";
 
 type Props = {
   product: Product;

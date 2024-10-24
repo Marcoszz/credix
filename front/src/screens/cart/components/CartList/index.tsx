@@ -17,6 +17,7 @@ const CartList = ({ cartItems, removeItemFromCart }: Props) => {
         <ul className="space-y-4 h-[450px] overflow-auto">
           {cartItems.map((item, i) => (
             <CartItem
+              key={i}
               index={i}
               item={item}
               handleRemoveItem={removeItemFromCart}

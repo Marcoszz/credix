@@ -1,9 +1,28 @@
-import { Button, FormControl, Input, MenuItem, Select } from "@mui/material";
-import useOrderForm from "./hooks/useOrderForm";
+import {
+  Button,
+  CircularProgress,
+  FormControl,
+  Input,
+  MenuItem,
+  Select,
+} from "@mui/material";
+import useOrderForm from "../../hooks/useOrderForm";
 
 const OrderForm = () => {
-  const { formValues, handleInputChange, handleSelectChange, handleSubmit } =
-    useOrderForm();
+  const {
+    loading,
+    formValues,
+    handleInputChange,
+    handleSelectChange,
+    handleSubmit,
+  } = useOrderForm();
+
+  if (loading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <CircularProgress size={80} />
+      </div>
+    );
 
   return (
     <form onSubmit={handleSubmit}>

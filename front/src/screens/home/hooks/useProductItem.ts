@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Product } from "../../../../../services/hooks/useGetProducts";
-import { useCartContext } from "../../../../../contexts/CartContext";
+import { Product } from "../../../services/hooks/useGetProducts";
+import { useCartContext } from "../../../contexts/CartContext";
 
 const useProductItem = (product: Product) => {
     const [quantity, setQuantity] = useState(0);
