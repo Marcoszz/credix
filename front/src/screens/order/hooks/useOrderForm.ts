@@ -1,13 +1,13 @@
 import { SelectChangeEvent } from "@mui/material/Select";
 import { useState } from "react";
-import useCreateOrder, { Order } from "../../../services/hooks/useCreateOrder";
-import useCart from "../../cart/hooks/useCart";
 import { useNavigate } from "react-router-dom";
+import { useCartContext } from "../../../contexts/CartContext";
+import useCreateOrder, { Order } from "../../../services/hooks/useCreateOrder";
 
 const useOrderForm = () => {
   const navigate = useNavigate();
   const { createOrder, loading } = useCreateOrder();
-  const { cartItems } = useCart();
+  const { cartItems, clearCart } = useCartContext();
   const [formValues, setFormValues] = useState({
     cnpj: "",
     shippingAddress: "",
@@ -113,6 +113,7 @@ const useOrderForm = () => {
           },
         ],
       } as Order);
+      clearCart();
       navigate("/status", { state: { error: response.statusCode ? response : null} });
     } else {
       alert("Please fill in all fields!");
