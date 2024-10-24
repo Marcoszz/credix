@@ -50,4 +50,13 @@ export class OrdersService {
 
         return order
     }
+
+    async findOrdersByBuyerTaxId(buyerTaxId: string) {
+        credixCredipay.auth(process.env.CREDIPAY_API_KEY);
+        const response = await credixCredipay.listOrders({externalId: process.env.SELLER_REF});
+
+        return response.data.filter((order: any) => {
+            return order.buyerTaxId === buyerTaxId;
+        });
+    }
 }

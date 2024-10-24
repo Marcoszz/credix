@@ -1,4 +1,4 @@
-import { Body, Controller, Post, HttpException, HttpStatus } from '@nestjs/common';
+import { Body, Controller, Post, HttpException, HttpStatus, Get, Query } from '@nestjs/common';
 import { ApiBody, ApiTags } from '@nestjs/swagger';
 import { CreateOrderDto } from './dtos/create-order.dto';
 import { OrdersService } from './orders.service';
@@ -43,4 +43,21 @@ export class OrdersController {
       );
     }
   }
+
+  @Get()
+  async getOrdersByBuyerTaxId(@Query('buyerTaxId') buyerTaxId: string) {
+    try {
+      const orders = await this.ordersService.findOrdersByBuyerTaxId(buyerTaxId);
+      return orders;
+    } catch (error) {
+      throw new HttpException(
+        {
+          status: HttpStatus.INTERNAL_SERVER_ERROR,
+          error: 'An error occurred while fetching orders.',
+        },
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
+
 }
