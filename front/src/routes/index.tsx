@@ -4,6 +4,7 @@ import Home from "../screens/home";
 import Order from "../screens/order";
 import Status from "../screens/status";
 import { FC } from "react";
+import Orders from "../screens/orders";
 
 type Route = {
   path: string;
@@ -33,5 +34,9 @@ export const routes: Route[] = [
   {
     path: "/status",
     element: StatusWrapper,
+  },
+  {
+    path: "orders",
+    element: Orders,
   },
 ];

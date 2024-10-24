@@ -29,7 +29,7 @@ const renderContent = (error: any | null) => {
 };
 
 const Status = ({ error }: StatusProps) => {
-  const { handlePressBack, handlePressHome } = useStatus();
+  const { handlePressHome } = useStatus();
   return (
     <>
       <Header />
