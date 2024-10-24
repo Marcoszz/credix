@@ -7,11 +7,11 @@ import {
 } from "@mui/material";
 import Header from "../../components/Header";
 import useHome from "./hooks/useHome";
-import ProductsList from "./components/productsList";
 import { Product } from "../../services/hooks/useGetProducts";
 import { Item } from "../../contexts/CartContext/types";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import { useCartContext } from "../../contexts/CartContext";
+import ProductsList from "./components/ProductsList";
 
 const renderContent = (
   loading: boolean,

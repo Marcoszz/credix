@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Product } from "../../../services/hooks/useGetProducts";
 import { useCartContext } from "../../../contexts/CartContext";
+import { Product } from "../../../services/hooks/useGetProducts";
 
 const useProductItem = (product: Product) => {
-    const [quantity, setQuantity] = useState(0);
     const { addItemToCart, cartItems } = useCartContext();
+    const [quantity, setQuantity] = useState(0);
 
     const getTotalQuantityInCart = (productId: string) => {
         return cartItems.reduce((total, item) => {
@@ -32,9 +32,9 @@ const useProductItem = (product: Product) => {
             unitPriceCents: product.unitPriceCents,
             productId: product.id,
         };
-        
-        setQuantity(0);
+
         addItemToCart(item);
+        setQuantity(0);
     };
 
     return {
@@ -42,8 +42,8 @@ const useProductItem = (product: Product) => {
         handleIncrement,
         handleDecrement,
         handleAddToCart,
-        getTotalQuantityInCart
-    }
-}
+        getTotalQuantityInCart,
+    };
+};
 
 export default useProductItem;

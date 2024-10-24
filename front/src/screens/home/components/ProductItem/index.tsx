@@ -10,11 +10,11 @@ type Props = {
 
 const ProductItem = ({ product }: Props) => {
   const {
+    quantity,
     handleAddToCart,
     handleDecrement,
     handleIncrement,
     getTotalQuantityInCart,
-    quantity,
   } = useProductItem(product);
 
   return (
